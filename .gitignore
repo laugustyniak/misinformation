@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 
 .idea/
+
+models/pl_political_advertising_model-1.0.0.tar.gz
