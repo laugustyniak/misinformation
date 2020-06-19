@@ -53,15 +53,21 @@ df = pd.read_pickle('datasets\political_advertising\pl_political_advertising_twi
 
 ## ATTENTION: Not raw text of tweets available 
 
-The pickled file does not contain the text of tweets due to the Twitter policy. It contains spans annotations, tweet id, URL for a tweet, and sentiment orientations assigned to the tweet.
+The pickled file does not contain the text of tweets due to the [Twitter policy](https://developer.twitter.com/en/developer-terms/agreement-and-policy). It contains spans annotations, tweet id, URL for a tweet, and sentiment orientations assigned to the tweet.
 ![DATASET_DF](/imgs/dataset_df.png)
  
 **If you want to get tweet text**, you should either download them yourself via Twitter API (using tweet ids or their URLs) or **contact us, and we will share the whole dataset with our collaborators (much more relaxed and faster solution).**  
  
-# References 
+# Citing
 
 
-TODO
 ```bibtex
-
+@misc{augustyniak2020political,
+    title={Political Advertising Dataset: the use case of the Polish 2020 Presidential Elections},
+    author={Łukasz Augustyniak and Krzysztof Rajda and Tomasz Kajdanowicz and Michał Bernaczyk},
+    year={2020},
+    eprint={2006.10207},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+}
 ```
