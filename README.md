@@ -20,7 +20,7 @@ Model prediction capabilities and use case TODO
 
 We trained a Convolutional Neural Network model using a spaCy Named Entity classifier, achieving a 70\% F1 score for 5-fold cross-validation. We used fastText vectors for Polish and default spaCy model hyperparameters.
 
-[Download model here](https://drive.google.com/file/d/1Lq9I6NmDG3VV-vp7WrYx3HCEdToeEymG/view?usp=sharing) 
+[Download model here](https://drive.google.com/file/d/1Lq9I6NmDG3VV-vp7WrYx3HCEdToeEymG/view?usp=sharing) and store it into `models` directory.  
 
 ### Usage via conda 
 
@@ -32,7 +32,7 @@ conda activate political_advertising
 Install spaCy model with political advertising categories via 
 ```bash
 pip install -r requirements.txt
-pip install /path/to/pl_political_advertising_model-1.0.0.tar.gz
+pip install models/pl_political_advertising_model-1.0.0.tar.gz
 ```
 
 Then open python or jupyter notebook and run
