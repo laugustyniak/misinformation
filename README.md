@@ -48,7 +48,7 @@ nlp = spacy.load('pl_political_advertising_model')
 
 ```python
 import pandas as pd
-df = pd.read_pickle('datasets\political_advertising\pl_political_advertising_twitter_iter_1.pkl')
+df = pd.read_pickle('datasets/political_advertising/pl_political_advertising_twitter_iter_1.pkl')
 ```
 
 ## ATTENTION: Not raw text of tweets available 
