@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+
+  web:
+    build: .
+    command: "streamlit run /app/political_advertising_dashboard.py"
+    volumes:
+      - ./:/app
