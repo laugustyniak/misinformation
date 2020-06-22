@@ -58,6 +58,7 @@ The pickled file does not contain the text of tweets due to the [Twitter policy]
  
 # Citing
 
+ACL WiNLP 2020 Accepted Paper
 
 ```bibtex
 @misc{augustyniak2020political,
