@@ -49,7 +49,7 @@ import pandas as pd
 df = pd.read_pickle('datasets/political_advertising/pl_political_advertising_twitter_iter_1.pkl')
 ```
 
-## ATTENTION: Not raw text of tweets available 
+## ATTENTION: Raw text of tweets is not available 
 
 The pickled file does not contain the text of tweets due to the [Twitter policy](https://developer.twitter.com/en/developer-terms/agreement-and-policy). It contains spans annotations, tweet id, URL for a tweet, and sentiment orientations assigned to the tweet.
 ![DATASET_DF](/imgs/dataset_df.png)
