@@ -61,12 +61,19 @@ The pickled file does not contain the text of tweets due to the [Twitter policy]
 ACL WiNLP 2020 Accepted Paper
 
 ```bibtex
-@misc{augustyniak2020political,
-    title={Political Advertising Dataset: the use case of the Polish 2020 Presidential Elections},
-    author={Łukasz Augustyniak and Krzysztof Rajda and Tomasz Kajdanowicz and Michał Bernaczyk},
-    year={2020},
-    eprint={2006.10207},
-    archivePrefix={arXiv},
-    primaryClass={cs.CL}
+@inproceedings{augustyniak-etal-2020-political,
+    title = "Political Advertising Dataset: the use case of the Polish 2020 Presidential Elections",
+    author = "Augustyniak, Lukasz  and
+      Rajda, Krzysztof  and
+      Kajdanowicz, Tomasz  and
+      Bernaczyk, Micha{\l}",
+    booktitle = "Proceedings of the The Fourth Widening Natural Language Processing Workshop",
+    month = jul,
+    year = "2020",
+    address = "Seattle, USA",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/2020.winlp-1.28",
+    pages = "110--114",
+    abstract = "Political campaigns are full of political ads posted by candidates on social media. Political advertisements constitute a basic form of campaigning, subjected to various social requirements. We present the first publicly open dataset for detecting specific text chunks and categories of political advertising in the Polish language. It contains 1,705 human-annotated tweets tagged with nine categories, which constitute campaigning under Polish electoral law. We achieved a 0.65 inter-annotator agreement (Cohen{'}s kappa score). An additional annotator resolved the mismatches between the first two annotators improving the consistency and complexity of the annotation process. We used the newly created dataset to train a well established neural tagger (achieving a 70{\%} percent points F1 score). We also present a possible direction of use cases for such datasets and models with an initial analysis of the Polish 2020 Presidential Elections on Twitter.",
 }
 ```
