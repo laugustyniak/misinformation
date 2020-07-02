@@ -77,3 +77,7 @@ ACL WiNLP 2020 Accepted Paper
     abstract = "Political campaigns are full of political ads posted by candidates on social media. Political advertisements constitute a basic form of campaigning, subjected to various social requirements. We present the first publicly open dataset for detecting specific text chunks and categories of political advertising in the Polish language. It contains 1,705 human-annotated tweets tagged with nine categories, which constitute campaigning under Polish electoral law. We achieved a 0.65 inter-annotator agreement (Cohen{'}s kappa score). An additional annotator resolved the mismatches between the first two annotators improving the consistency and complexity of the annotation process. We used the newly created dataset to train a well established neural tagger (achieving a 70{\%} percent points F1 score). We also present a possible direction of use cases for such datasets and models with an initial analysis of the Polish 2020 Presidential Elections on Twitter.",
 }
 ```
+
+# Acknowledgment 
+![Wroclaw University of Science and Technology](/imgs/wrust.png)
+![Wroclaw University](/imgs/wu.png)
