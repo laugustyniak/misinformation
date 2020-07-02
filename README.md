@@ -80,4 +80,4 @@ ACL WiNLP 2020 Accepted Paper
 
 # Acknowledgment 
 ![Wroclaw University of Science and Technology](/imgs/wrust.png)
-![Wroclaw University](/imgs/wu.png)
+![University of Wroclaw](/imgs/wu.jpg)
