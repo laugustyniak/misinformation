@@ -1,10 +1,10 @@
-,category,sentiment,Kategoria obietnicy wyborczej,Średnie nastawienie emocjonalne wpisów
-0,defense and security,-0.048672566371681415,Obronność i bezpieczeństwo,-0.048672566371681415
-1,education,-0.2760416666666667,Edukacja,-0.2760416666666667
-2,foreign policy,-0.192,Polityka zagraniczna,-0.192
-3,healhcare,-0.010079699953117674,Służba zdrowia,-0.010079699953117674
-4,immigration,-0.3167701863354037,Imigracja,-0.3167701863354037
-5,infrastructure and enviroment,-0.17147707979626486,Infrastruktura i środowisko,-0.17147707979626486
-6,political and legal system,-0.07310149041873669,System polityczny i prawny,-0.07310149041873669
-7,society,-0.19847663688296469,Społeczeństwo,-0.19847663688296469
-8,welfare,0.0,Dobrobyt,0.0
+,category,Kategoria obietnicy wyborczej,Średnie nastawienie emocjonalne wpisów,Liczba wystąpień obietnicy wyborczej
+0,defense and security,Obronność i bezpieczeństwo,-0.04824561403508772,228
+1,education,Edukacja,-0.2830687830687831,378
+2,foreign policy,Polityka zagraniczna,-0.20161290322580644,124
+3,healhcare,Służba zdrowia,-0.010564171723982918,4449
+4,immigration,Imigracja,-0.31901840490797545,163
+5,infrastructure and enviroment,Infrastruktura i środowisko,-0.16891891891891891,592
+6,political and legal system,System polityczny i prawny,-0.10247651579846286,7026
+7,society,Społeczeństwo,-0.19826572604350381,6804
+8,welfare,Dobrobyt,-0.0010964912280701754,4560
