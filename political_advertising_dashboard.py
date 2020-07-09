@@ -3,26 +3,15 @@ import pandas as pd
 import seaborn as sns
 import spacy
 import streamlit as st
-import matplotlib.pyplot as plt
-sns.set(style="ticks", color_codes=True)
 from spacy import displacy
 
-from political_advertising.categories import POLITICAL_ADVERTISING_CATEGORIES_EN_TO_PL
+from political_advertising.categories import POLITICAL_ADVERTISING_CATEGORIES_EN_TO_PL, POLITICAL_LABELS
 
-HTML_WRAPPER = """<div style="overflow-x: auto; border: 1px solid #e6e9ef; border-radius: 0.25rem; padding: 1rem; margin-bottom: 2.5rem">{}</div>"""
+sns.set(style="ticks", color_codes=True)
+
+HTML_WRAPPER = """<div style="overflow-x: auto; border: 1px solid #e6e9ef; 
+border-radius: 0.25rem; padding: 1rem; margin-bottom: 2.5rem">{}</div>"""
 DEFAULT_TEXT = 'będę starał się rozwiązać kryzys wodny oraz zewaluować program 500+'
-
-POLITICAL_LABELS = [
-    'healhcare',
-    'welfare',
-    'society',
-    'political_and_legal_system',
-    'infrastructure_and_enviroment',
-    'defense_and_security',
-    'immigration',
-    'education',
-    'foreign_policy',
-]
 
 ANDRZEJ = 'Andrzej Duda'
 RAFAL = 'Rafał Trzaskowski'
@@ -93,7 +82,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 candidates_tweets_df = pd.read_pickle('datasets/twitter_presidential_elections/komitety_processed.pkl')
-twitter_df = pd.read_pickle('datasets/twitter_presidential_elections/twitter_processed.pkl')
+# twitter_df = pd.read_pickle('datasets/twitter_presidential_elections/twitter_processed.pkl')
 
 st.info(f'Zakres czasowy analizy: {candidates_tweets_df.full_date.min()} - {candidates_tweets_df.full_date.max()}')
 
@@ -171,14 +160,23 @@ def draw_political_advertising_categories_and_sentiment(
     df[x_label] = df['sentiment']
     df['Kandydat'] = df['candidate']
 
-    g = sns.catplot(
-        x="Kategoria obietnicy wyborczej",
-        y=x_label,
-        hue="Kandydat",
-        kind="bar",
-        data=df,
+    st.write(
+        alt.Chart(df).mark_bar().encode(
+            x='Kategoria obietnicy wyborczej:O',
+            y=f'{x_label}:Q',
+            color='Kandydat:N',
+            column='Kandydat:N'
+        )
     )
-    g.set_xticklabels(rotation=90)
+    # g = sns.catplot(
+    #     x="Kategoria obietnicy wyborczej",
+    #     y=x_label,
+    #     hue="Kandydat",
+    #     kind="bar",
+    #     data=df,
+    # )
+    # g.set_xticklabels(rotation=90)
+    # st.pyplot()
 
 
 candidate_categories_with_sentiment_df = pd.DataFrame([
@@ -192,35 +190,42 @@ draw_political_advertising_categories_and_sentiment(
     POLITICAL_ADVERTISING_CATEGORIES_EN_TO_PL,
     'Średnie nastawienie emocjonalne wpisów'
 )
-st.pyplot()
 
 draw_political_advertising_categories_and_sentiment(
     candidate_categories_with_sentiment_df.groupby(['candidate', 'category']).agg('count').reset_index(),
     POLITICAL_ADVERTISING_CATEGORIES_EN_TO_PL,
     'Liczba obietnic wyborczych'
 )
-st.pyplot()
 
-st.header('Średnie nastawienie emocjonalne tweetów napisanych przez wybórców w kontekście kategorii obietnic wyborczych')
-twitter_categories_with_sentiment_df = pd.DataFrame([
-    (political_ad, row.sentiment)
-    for _, row in twitter_df.iterrows()
-    for political_ad in row.political_advertising_labels
-], columns=['category', 'sentiment'])
-x_label = 'Średnie nastawienie emocjonalne wpisów'
-df = twitter_categories_with_sentiment_df.groupby(['category']).agg('mean').reset_index()
+st.header(
+    'Średnie nastawienie emocjonalne tweetów napisanych przez wybórców w kontekście kategorii obietnic wyborczych')
 
-df['Kategoria obietnicy wyborczej'] = df.category.apply(lambda c: POLITICAL_ADVERTISING_CATEGORIES_EN_TO_PL[c])
-df[x_label] = df['sentiment']
 
-g = sns.catplot(
-    x="Kategoria obietnicy wyborczej",
-    y=x_label,
-    hue="Kandydat",
-    kind="bar",
-    data=df,
-)
-g.set_xticklabels(rotation=90)
+def plot_political_categories_with_sentiment(twitter_categories_with_sentiment_df):
+    x_label = 'Średnie nastawienie emocjonalne wpisów'
+    df = twitter_categories_with_sentiment_df.groupby(['category']).agg('mean').reset_index()
+
+    df['Kategoria obietnicy wyborczej'] = df.category.apply(lambda c: POLITICAL_ADVERTISING_CATEGORIES_EN_TO_PL[c])
+    df[x_label] = df['sentiment']
+
+    st.write(
+        alt.Chart(df).mark_bar().encode(
+            x='Kategoria obietnicy wyborczej:O',
+            y=f'{x_label}:Q',
+        )
+    )
+    # twitter_plot = sns.catplot(
+    #     x="Kategoria obietnicy wyborczej",
+    #     y=x_label,
+    #     kind="bar",
+    #     data=df,
+    # )
+    # twitter_plot.set_xticklabels(rotation=90)
+    # st.pyplot()
+
+
+plot_political_categories_with_sentiment(
+    pd.read_csv('datasets/twitter_presidential_elections/twitter_categories_with_sentiment.csv'))
 
 # GOOGLE ANALYTICS
 st.markdown("""

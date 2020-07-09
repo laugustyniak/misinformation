@@ -9,3 +9,15 @@ POLITICAL_ADVERTISING_CATEGORIES_EN_TO_PL = {
     'society': 'Społeczeństwo',
     'welfare': 'Dobrobyt'
 }
+
+POLITICAL_LABELS = [
+    'healhcare',
+    'welfare',
+    'society',
+    'political_and_legal_system',
+    'infrastructure_and_enviroment',
+    'defense_and_security',
+    'immigration',
+    'education',
+    'foreign_policy',
+]
