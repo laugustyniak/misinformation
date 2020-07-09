@@ -197,40 +197,47 @@ draw_political_advertising_categories_and_sentiment(
     'Liczba obietnic wyborczych'
 )
 
+st.warning('Poniżej analiza tweetów napisanych przez wyborców między 2020-06-28, a 2020-07-07')
+st.warning('W sumie zbiór zawiera 162 397 tweetów')
+st.warning('Pobranych korzystając z następujących hastagów: #Trzaskowski2020, #Duda2020, #Wybory2020, #WyboryPrezydenckie2020')
+
 st.header(
-    'Średnie nastawienie emocjonalne tweetów napisanych przez wybórców w kontekście kategorii obietnic wyborczych')
+    'Średnie nastawienie emocjonalne tweetów napisanych przez wybórców w kontekście kategorii obietnic wyborczych'
+    ' bez neutralnych tweetów')
 
-
-def plot_political_categories_with_sentiment(twitter_categories_with_sentiment_df):
-    x_label = 'Średnie nastawienie emocjonalne wpisów'
-    df = twitter_categories_with_sentiment_df.groupby(['category']).agg('mean').reset_index()
-
-    df['Kategoria obietnicy wyborczej'] = df.category.apply(lambda c: POLITICAL_ADVERTISING_CATEGORIES_EN_TO_PL[c])
-    df[x_label] = df['sentiment']
-
-    st.write(
-        alt.Chart(df).mark_bar(
-
-        ).encode(
-            x='Kategoria obietnicy wyborczej:O',
-            y=f'{x_label}:Q',
-        ).properties(
-            width=400,
-            height=550
-        )
+twitter_sentiment_df = pd.read_csv('datasets/twitter_presidential_elections/twitter_categories_with_sentiment.csv')
+twitter_sentiment_divided_df = pd.read_csv(
+    'datasets/twitter_presidential_elections/twitter_categories_with_sentiment_divided.csv')
+st.write(
+    alt.Chart(twitter_sentiment_df).mark_bar().encode(
+        x='Kategoria obietnicy wyborczej:O',
+        y=f'Średnie nastawienie emocjonalne wpisów:Q',
+    ).properties(
+        width=400,
+        height=550
     )
-    # twitter_plot = sns.catplot(
-    #     x="Kategoria obietnicy wyborczej",
-    #     y=x_label,
-    #     kind="bar",
-    #     data=df,
-    # )
-    # twitter_plot.set_xticklabels(rotation=90)
-    # st.pyplot()
+)
 
+twitter_sentiment_divided_df['Suma sentymentu (wystąpienia)'] = twitter_sentiment_divided_df['Liczba wystąpień'] * twitter_sentiment_divided_df['Sentyment']
+st.write(
+    alt.Chart(twitter_sentiment_divided_df).mark_bar().encode(
+        x='Kategoria obietnicy wyborczej:O',
+        y=f'Suma sentymentu (wystąpienia):Q',
+        color='Sentyment:N',
+        column='Sentyment:N'
+    )
+)
 
-plot_political_categories_with_sentiment(
-    pd.read_csv('datasets/twitter_presidential_elections/twitter_categories_with_sentiment.csv'))
+st.header('Liczba wystąpień obietnic wyborczych dla każdej kategorii')
+st.write(
+    alt.Chart(twitter_sentiment_df).mark_bar().encode(
+        x='Kategoria obietnicy wyborczej:O',
+        y=f'Liczba wystąpień obietnicy wyborczej:Q',
+    ).properties(
+        width=400,
+        height=550
+    )
+)
 
 # GOOGLE ANALYTICS
 st.markdown("""
