@@ -209,9 +209,14 @@ def plot_political_categories_with_sentiment(twitter_categories_with_sentiment_d
     df[x_label] = df['sentiment']
 
     st.write(
-        alt.Chart(df).mark_bar().encode(
+        alt.Chart(df).mark_bar(
+
+        ).encode(
             x='Kategoria obietnicy wyborczej:O',
             y=f'{x_label}:Q',
+        ).properties(
+            width=400,
+            height=550
         )
     )
     # twitter_plot = sns.catplot(
