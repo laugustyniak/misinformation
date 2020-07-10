@@ -12,7 +12,7 @@ We achieved a 0.65 inter-annotator agreement (Cohen's kappa score). An additiona
 
 ## Interactive dashboards
 
-[Annotations Model and Dashboard](http://oxygen.engine.kdm.wcss.pl:8501/)
+[Annotations Model and Dashboard](http://misinformation.ml/)
 
 ## Model loading and usage
 
