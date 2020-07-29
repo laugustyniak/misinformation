@@ -15,5 +15,5 @@ srsly==1.0.2
 streamlit==0.62.0
 tornado==6.0.4
 tqdm==4.43.0
-uvicorn==0.11.3
+uvicorn==0.11.7
 xlrd==1.2.0
